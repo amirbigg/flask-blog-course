@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="get">
+        {{ form.csrf_token }}
+        {{ form.username.label(class='form-control-label') }} {{ form.username(class='form-control') }}
+        {{ form.email.label(class='form-control-label') }} {{ form.email(class='form-control') }}
+        {{ form.password.label(class='form-control-label') }} {{ form.password(class='form-control') }}
+        {{ form.confirm_password.label(class='form-control-label') }} {{ form.confirm_password(class='form-control') }}
+        <input type="submit" value="Register" class="btn btn-info">
+    </form>
+{% endblock %}
