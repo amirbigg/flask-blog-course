@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 from blog import app, db, bcrypt
 from blog.forms import RegistrationForm, LoginForm
 from blog.models import User
@@ -16,6 +16,7 @@ def register():
 		user = User(username=form.username.data, email=form.email.data, password=hashed_pass)
 		db.session.add(user)
 		db.session.commit()
+		flash('you registered successfully', 'success')
 		return redirect(url_for('home'))
 	return render_template('register.html', form=form)
 
