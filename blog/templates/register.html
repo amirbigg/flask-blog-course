@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% include 'inc/form_errors.html' %}
     <form action="" method="post">
         {{ form.csrf_token }}
         {{ form.username.label(class='form-control-label') }} {{ form.username(class='form-control') }}
