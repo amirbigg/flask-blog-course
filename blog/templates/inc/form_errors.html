@@ -1,22 +1,22 @@
-{% if form.username.errors %}
+{% if form.username and form.username.errors %}
     {% for error in form.username.errors %}
         <p class="alert alert-danger">{{ error }}</p>
     {% endfor %}
 {% endif %}
 
-{% if form.email.errors %}
+{% if form.email and form.email.errors %}
     {% for error in form.email.errors %}
         <p class="alert alert-danger">{{ error }}</p>
     {% endfor %}
 {% endif %}
 
-{% if form.password.errors %}
+{% if form.password and form.password.errors %}
     {% for error in form.password.errors %}
         <p class="alert alert-danger">{{ error }}</p>
     {% endfor %}
 {% endif %}
 
-{% if form.confirm_password.errors %}
+{% if form.confirm_password and form.confirm_password.errors %}
     {% for error in form.confirm_password.errors %}
         <p class="alert alert-danger">{{ error }}</p>
     {% endfor %}
