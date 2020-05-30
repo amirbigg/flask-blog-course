@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{ current_user.username }}</h3>
+    <p>{{ current_user.email }}</p><hr/>
+
+    {% include 'inc/form_errors.html' %}
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username }}
+        {{ form.email.label }} {{ form.email }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}

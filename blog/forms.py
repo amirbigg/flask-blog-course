@@ -25,3 +25,8 @@ class LoginForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired(), Email()])
 	password = PasswordField('Password', validators=[DataRequired()])
 	remember = BooleanField('Remember me')
+
+
+class UpdateProfileForm(FlaskForm):
+	username = StringField('Username', validators=[DataRequired(), Length(min=4, max=25, message='username must be between 4 and 25 characters')])
+	email = StringField('Email', validators=[DataRequired(), Email()])

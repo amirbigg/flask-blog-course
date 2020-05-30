@@ -3,6 +3,7 @@
         <a class="nav-item nav-link active" href="{{ url_for('home') }}">Home</a>
         {% if current_user.is_authenticated %}
         <a class="nav-item nav-link active" href="{{ url_for('logout') }}">Logout</a>
+        <a class="nav-item nav-link active" href="{{ url_for('profile') }}">Profile</a>
         {% else %}
         <a class="nav-item nav-link active" href="{{ url_for('register') }}">Register</a>
         <a class="nav-item nav-link active" href="{{ url_for('login') }}">Login</a>
