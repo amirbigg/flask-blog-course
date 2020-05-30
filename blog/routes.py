@@ -58,13 +58,3 @@ def profile():
 		form.username.data = current_user.username
 		form.email.data = current_user.email
 	return render_template('profile.html', form=form)
-
-
-
-
-
-
-
-
-
-
