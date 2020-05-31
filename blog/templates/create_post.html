@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        {{ form.title.label(class='form-control-label') }} {{ form.title(class='form-control') }}
+        {{ form.content.label(class='form-control-label') }} {{ form.content(class='form-control') }}
+        <input type="submit" value="Create" class="btn btn-secondary">
+    </form>
+{% endblock %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <a href="{{ url_for('new_post') }}" class="btn btn-info">Create new post</a>
     <h3>{{ current_user.username }}</h3>
     <p>{{ current_user.email }}</p><hr/>
 

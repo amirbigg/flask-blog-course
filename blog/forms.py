@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField
+from wtforms import StringField, PasswordField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from blog.models import User
 from flask_login import current_user
@@ -45,7 +45,9 @@ class UpdateProfileForm(FlaskForm):
 				raise ValidationError('This email already exists')
 
 
-
+class PostForm(FlaskForm):
+	title = StringField('Title', validators=[DataRequired()])
+	content = TextAreaField('Content', validators=[DataRequired()])
 
 
 
