@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, abort
 from blog import app, db, bcrypt
 from blog.forms import RegistrationForm, LoginForm, UpdateProfileForm, PostForm
 from blog.models import User, Post
@@ -84,8 +84,16 @@ def new_post():
 	return render_template('create_post.html', form=form)
 
 
-
-
+@app.route('/post/<int:post_id>/delete')
+@login_required
+def delete(post_id):
+	post = Post.query.get_or_404(post_id)
+	if post.author != current_user:
+		abort(403)
+	db.session.delete(post)
+	db.session.commit()
+	flash('post deleted', 'info')
+	return redirect(url_for('home'))
 
 
 

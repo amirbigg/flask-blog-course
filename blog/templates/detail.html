@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if post.author == current_user %}
+        <a href="{{ url_for('delete', post_id=post.id) }}" class="btn btn-danger">Delete</a>
+    {% endif %}
     <h3>{{ post.title }}</h3>
     <small>{{ post.author.username }} {{ post.date.strftime('%Y-%m-%d') }}</small><hr/>
     <p>{{ post.content }}</p>
