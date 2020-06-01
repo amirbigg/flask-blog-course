@@ -7,7 +7,15 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+	posts = Post.query.all()
+	return render_template('home.html', posts=posts)
+
+
+@app.route('/post/<int:post_id>')
+def detail(post_id):
+	post = Post.query.get_or_404(post_id)
+	return render_template('detail.html', post=post)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -20,6 +28,7 @@ def register():
 		flash('you registered successfully', 'success')
 		return redirect(url_for('home'))
 	return render_template('register.html', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -37,12 +46,14 @@ def login():
 			flash('Email or Password is wrong', 'danger')
 	return render_template('login.html', form=form)
 
+
 @app.route('/logout')
 @login_required
 def logout():
 	logout_user()
 	flash('you logged out successfully', 'success')
 	return redirect(url_for('home'))
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required

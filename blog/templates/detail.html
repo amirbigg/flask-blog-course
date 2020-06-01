@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{ post.title }}</h3>
+    <small>{{ post.author.username }} {{ post.date.strftime('%Y-%m-%d') }}</small><hr/>
+    <p>{{ post.content }}</p>
+{% endblock %}
